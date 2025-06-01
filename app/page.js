@@ -25,6 +25,7 @@ export default function Home() {
 
         <Link
           href="https://t.me/panchenko_smilebz"
+          aria-label="Vitaliy Panchenko on Telegram"
           target="_blank"
           className="absolute bottom-16 lg:bottom-8 left-1/2 transform -translate-x-1/2 lg:-translate-x-[47.5%] z-1"
         >

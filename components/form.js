@@ -187,6 +187,7 @@ export default function Form() {
           Place your{' '}
           <Link
             href="https://www.dropbox.com"
+            aria-label="Dropbox"
             className="text-primary-500"
             target="_blank"
           >
@@ -262,6 +263,7 @@ export default function Form() {
 
           <button
             onClick={handleCopy}
+            aria-label="Copy to clipboard"
             className={`
               copy-button
               ${copied ? 'text-success-400' : 'text-primary-500'}`}
