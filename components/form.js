@@ -3,6 +3,9 @@
 import Link from 'next/link';
 import { useState, useId } from 'react';
 import PlusIcon from './plusIcon';
+import HtmlHighlighter from './HtmlHighlighter';
+import CopyIcon from './copyIcon';
+import CheckIcon from './checkIcon';
 
 export default function Form() {
   // Використовуємо useId для початкового id, щоб уникнути hydration mismatch
@@ -164,6 +167,18 @@ export default function Form() {
 
   const videoHTMLString = generateVideoHTML();
 
+  // Стан для відображення повідомлення про копіювання
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    // Копіюємо рядок videoHTMLString у буфер
+    navigator.clipboard.writeText(videoHTMLString).then(() => {
+      setCopied(true);
+      // Повертаємо стан назад через 2 секунди
+      setTimeout(() => setCopied(false), 4000);
+    });
+  };
+
   return (
     <div>
       {/* Поля для введення посилань */}
@@ -242,12 +257,34 @@ export default function Form() {
           </span>{' '}
           tag
         </label>
-        <textarea
-          readOnly
-          value={videoHTMLString}
-          rows={8}
-          className="mt-1 block w-full resize-none rounded border-gray-300 bg-gray-50 p-2 font-mono text-sm"
-        />
+        <div className="relative">
+          <HtmlHighlighter codeString={videoHTMLString} />
+
+          <button
+            onClick={handleCopy}
+            className={`
+              copy-button
+              ${copied ? 'text-success-400' : 'text-primary-500'}`}
+          >
+            <div
+              className={`
+                ${copied ? 'opacity-0' : 'opacity-100'}
+              `}
+            >
+              <CopyIcon />
+            </div>
+
+            <div
+              className={`
+                absolute
+                inset-0
+                ${copied ? 'opacity-100' : 'opacity-0'}
+              `}
+            >
+              <CheckIcon />
+            </div>
+          </button>
+        </div>
       </div>
     </div>
   );

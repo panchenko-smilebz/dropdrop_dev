@@ -8,9 +8,11 @@
   --color-primary-475: #405ddf;
   --color-neutral-700: #50565a;
   --color-neutral-300: #d0d6da;
+  --color-neutral-200: #e7eaec;
   --color-neutral-100: #f6f7f8;
   --color-error-500: #eb2929;
   --color-error-400: #f05f5f;
+  --color-success-400: #40bc8f;
 }
 
 :root {
@@ -58,4 +60,15 @@ label {
 }
 .attributes-description li {
   @apply space-y-2.5;
+}
+
+/* Code Snippet */
+.react-syntax-highlighter-line-number {
+  @apply text-neutral-700;
+}
+.copy-button {
+  @apply absolute top-3.5 right-3.5 bg-neutral-100 hover:bg-neutral-200 rounded-md transition-colors duration-400 ease-in-out cursor-pointer;
+}
+.copy-button > div {
+  @apply transition-opacity duration-300 ease-in-out;
 }

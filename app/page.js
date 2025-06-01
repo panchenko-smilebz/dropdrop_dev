@@ -24,7 +24,8 @@ export default function Home() {
         </video>
 
         <Link
-          href="#"
+          href="https://t.me/panchenko_smilebz"
+          target="_blank"
           className="absolute bottom-16 lg:bottom-8 left-1/2 transform -translate-x-1/2 lg:-translate-x-[47.5%] z-1"
         >
           <Chips>
