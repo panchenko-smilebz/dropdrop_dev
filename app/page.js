@@ -11,7 +11,9 @@ export default function Home() {
         <video
           width="100%"
           height="100%"
-          poster="/background-video_poster.jpg"
+          poster="/background-video_poster.webp"
+          fetchPriority="high"
+          preload="auto"
           autoPlay
           loop
           muted
